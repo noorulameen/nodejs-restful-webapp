@@ -1,0 +1,46 @@
+extends ../layout
+block content
+	div(class="row rank")
+		h3 #{page_title}
+		div(class="content")
+			br
+			div(class="search")
+				form(role="form", action="/search", method="get")
+					input.form-control.input-sm(type='text', name="srch", maxlength='64', placeholder='Search')
+					button.btnsrc.btn-primary.btn-sm(type='submit') Search
+			div(class="tab-pane", id="perfumes")
+				div(row="")
+					div(class="col-md")
+						div(class="rankCont")
+								table(id="perfumes_list" class="table table-bordered dt-responsive")
+									thead
+										tr(class="tableth")
+											th(rowspan="2") Id
+										tr(class="tableth")
+											th Product Name
+											th Price
+											th Edit
+											th Delete
+											
+									tbody
+										- for (i in data)
+											tr
+												td(style='text-align: center')
+													=data[i]['id']
+												td(style='text-align: center')
+													=data[i]['name']
+												td(style='text-align: center')
+													=data[i]['price']
+												td(style='text-align: center')
+													a(href!="/product/editperfume?id=#{data[i]['id']}")="Edit Perfume"
+												td(style='text-align: center')
+													a(href!="/product/delete?id=#{data[i]['id']} ")="Delete Perfume"
+
+						script(type="text/javascript").
+							$("#perfumes_list").dataTable({
+										"iDisplayLength": 5, //Number of rows
+										"bLengthChange": false, //Disable "show 1-n entries"
+										bFilter: false, //Disable filter
+										bInfo: false,
+										"order": [[ 1, "desc" ]]
+										});

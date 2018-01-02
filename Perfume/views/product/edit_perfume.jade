@@ -1,0 +1,18 @@
+extends ../layout
+block content
+  .container-fluid.text-center
+    .row
+      .col-md-3.col-md-offset-5.loginpan
+        .login-panel.panel.panel-default.loginpan1
+          .panel-heading
+            h3.panel-title #{page_title}
+          .panel-body
+            form(role="form", action="/product/updateperfume", method="post")
+              fieldset
+                .form-group
+                  input.form-control(type="hidden", name="id", class="form-control" value='#{data[0].id}' required)
+                  input.form-control(type="text", placeholder="Product Name", name="name", class="form-control" value='#{data[0].name}' required)
+                .form-group
+                  input.form-control(type="text", placeholder="Price", name="price", class="form-control" value='#{data[0].price}' required)
+                button(class="btn btn-lg btn-success btn-block",type="submit",value="Submit") Submit
+

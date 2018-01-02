@@ -1,0 +1,23 @@
+
+<div class="container">
+   <div class="row">
+       <div class="product-container clearfix">
+            <div class="login-header">
+                <a href="localhost:3000/users/login" target="_blank">login</a>
+            </div>
+            <h3>{{errorder}}</h3>
+            <div ng-repeat="item in userProduct"  class="col-sm-3 product">
+              <ul class="list-unstyled" >
+                  <li>Product : {{item.name}}</li>
+                  <li>Price : {{item.price}}</li>
+                  <li>No.Of<input type="number" style="margin-left:15px" ng-model="item.quentity" min="1" required></li>
+                  <li>Order Checkout: <input type="checkbox" style="margin-left:15px" ng-model="item.selected"></li>
+              </ul>
+              <br>
+            </div>
+       </div>
+       <div class="product-footer">
+           <button type="button" class="btn btn-primary form-controll" ng-click="onOrder()">Order</button>
+       </div>
+    </div>
+</div>

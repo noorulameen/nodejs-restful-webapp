@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="product-container clearfix">
+            <div class="login-header">
+                <a href="localhost:3000/users/login" target="_blank">login</a>
+            </div>
+            {{yourorder}}
+            <div ng-repeat="item in userOrder"  class="col-sm-3 selected-product">
+              <ul class="list-unstyled">
+                  <li>Product : {{item.name}}</li>
+                  <li>Price : {{item.price}}</li>
+                  <li>quantity : {{item.quantity}}</li>
+                  <li>amount : {{item.quantity*item.price}}</li>
+              </ul>
+            </div>
+        </div>
+        <div class="selected-product-footer">
+            <span>totalitem : {{totalitem}}</span><br>
+            <span>totalamount : {{totalamount}}</span>
+        </div>
+    </div>
+</div>
